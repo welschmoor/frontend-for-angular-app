@@ -19,8 +19,8 @@ export class UsersService {
     return this.http.post(this.baseURL + "post", data)
   }
 
-  updateData(data:any): Observable<any> {
-    return this.http.post(this.baseURL + "post", data)
+  updateData(data: any, id: string): Observable<any> {
+    return this.http.patch(this.baseURL + "update" + `/${id}`, data)
   }
 
 }

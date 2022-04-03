@@ -8,6 +8,8 @@ import { UsersService } from './services/users.service';
 })
 export class AppComponent {
   title = 'client';
+  dataz = []
+  homes$: any
 
   constructor(private usersService: UsersService) { }
 
@@ -21,11 +23,24 @@ export class AppComponent {
     })
   }
 
+  updateData(value: any) {
+    console.log('value', value)
+    const body = {
+      ...value
+    }
+    this.usersService.updateData(body, '6249a8d923736f4aeb36cc81')
+      .subscribe(response => {
+        console.log(response)
+      })
+  }
+
 
 
   ngOnInit() {
     this.usersService.getAll().subscribe(data => {
       console.log("data", data)
+      data = data
+      this.homes$ = data
     })
   }
 
