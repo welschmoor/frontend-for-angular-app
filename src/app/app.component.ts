@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsersService } from './services/users.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
+
+  constructor(private usersService: UsersService) { }
+
+  submitData(value: any) {
+    console.log(value)
+    const body = {
+      ...value
+    }
+    this.usersService.postData(body).subscribe(response => {
+      console.log("response", response)
+    })
+  }
+
+
+
+  ngOnInit() {
+    this.usersService.getAll().subscribe(data => {
+      console.log("data", data)
+    })
+  }
+
 }
