@@ -1,0 +1,15 @@
+<form class="checkboxesForm" [formGroup]="form" (submit)="submit(form.value)">
+  <label class="cbLabel">
+    <input type="checkbox" [formControlName]="'Age18'" />
+    Age > 18 - 29
+  </label>
+  <label class="cbLabel">
+    <input type="checkbox" [formControlName]="'Age30'" />
+    Age > 30 - 39
+  </label>
+  <label class="cbLabel">
+    <input type="checkbox" [formControlName]="'Age40'" />
+    Age > 40 - 49
+  </label>
+  <button type="submit"> Apply</button>
+</form>

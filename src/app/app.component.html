@@ -13,6 +13,7 @@
 <br />
 <br />
 <h3>Update data:</h3>
+
 <form #loginForm2="ngForm" (ngSubmit)="updateData(loginForm2.value)">
   <div class="main">
     <div class="input-fields">
@@ -25,6 +26,27 @@
   </div>
 </form>
 
+<div class="filtermenu">
+  <div class="dropdown" >
+    <button (click)="toggleTypeDropDown()">Sort by Type</button>
+    <div class="dropdown-content" *ngIf="typeDropdownOpen">
+      <app-type-filter (applied)="typeFilterApplied($event)"></app-type-filter>
+    </div>
+  </div>
+
+
+  <div>
+    <button>Sort by Type</button>
+  </div>
+  <div>
+    <button>Sort by Date</button>
+  </div>
+</div>
+
 <div *ngFor="let each of homes$">
   {{each['name']}}
+</div>
+
+<div *ngIf="!homes$">
+  <div class="spinner"></div>
 </div>

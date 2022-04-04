@@ -1,0 +1,10 @@
+.checkboxesForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+.cbLabel {
+  cursor: pointer;
+}

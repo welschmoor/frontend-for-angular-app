@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from "rxjs"
+import { delay, Observable } from "rxjs"
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,7 @@ export class UsersService {
 
   getAll(): Observable<any> {
     return this.http.get(this.baseURL + "getAll")
+      .pipe(delay(5100))  // example of how to delay getting data
   }
 
   postData(data: any): Observable<any> {
